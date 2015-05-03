@@ -1,1 +1,23 @@
 <h1>signup-template.handlebars</h1>
+<div class="row">
+  <form id="login-form" class="col-md-4">
+
+    <div id="email-group" class="form-group">
+      <label for="email-input">Email address</label>
+      <input id="email-input" type="email" class="form-control" placeholder="tyrion@lannister.org">
+      <span id="email-empty-error" class="help-block text-danger invisible">Email can't be empty.</span>
+    </div>
+
+    <div id="password-group" class="form-group">
+      <label for="password-input">Password</label>
+      <div class="input-group">
+        <input type="password" class="form-control" id="password-input" placeholder="correcthorsebatterystaple">
+        <label for="show-password" class="input-group-addon">
+          show password <input id="show-password" type="checkbox">
+        </label>
+      </div>
+      <span id="password-empty-error" class="help-block text-danger invisible">Password can't be empty.</span>
+    </div>
+    <button type="submit" class="btn btn-primary">Signup</button>
+  </form>
+</div>

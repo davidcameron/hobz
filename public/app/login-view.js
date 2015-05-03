@@ -14,6 +14,23 @@
       this.events['keyup input'] = 'showErrors';
       this.delegateEvents();
       this.showErrors();
+      if (this.isValid()) {
+        this.submit();
+      }
+    },
+    isValid: function () {
+      if (!$('#email-input').val()) {
+        return false;
+      }
+
+      if (!$('#password-input').val()) {
+        return false;
+      }
+
+      return true;
+    },
+    submit: function () {
+      console.log('did submit');
     },
     showErrors: function () {
       if(!$('#email-input').val()) {
