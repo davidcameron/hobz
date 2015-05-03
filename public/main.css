@@ -1,0 +1,7 @@
+.form-group .error-text {
+  visibility: hidden;
+}
+
+.form-group.has-error .error-text {
+  visibility: visible;
+}
