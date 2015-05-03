@@ -18,14 +18,18 @@
     showErrors: function () {
       if(!$('#email-input').val()) {
         $('#email-group').addClass('has-error');
+        $('#email-empty-error').removeClass('invisible');
       } else {
         $('#email-group').removeClass('has-error');
+        $('#email-empty-error').addClass('invisible');
       }
 
       if(!$('#password-input').val()) {
         $('#password-group').addClass('has-error');
+        $('#password-empty-error').removeClass('invisible');
       } else {
         $('#password-group').removeClass('has-error');
+        $('#password-empty-error').addClass('invisible');
       }
     }
   });

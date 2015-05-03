@@ -24,8 +24,8 @@
       'signup': 'signupRoute',
     },
     homeRoute: function () {
-      var appView = require('./app/app-view');
-      app.contentRegion.show(new appView());
+      var landingView = require('./app/landing-view');
+      app.contentRegion.show(new landingView());
     },
     loginRoute: function () {
       var loginView = require('./app/login-view');
