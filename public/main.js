@@ -2,17 +2,44 @@
   'use strict';
 
   var $ = require('jquery');
-  require('backbone').$ = $ || jQuery; // Some dumb dependancy bug
+  var Backbone = require('backbone');
+  Backbone.$ = $ || jQuery; // Some dumb dependancy bug
   var Marionette = require('backbone.marionette');
 
   var app = new Marionette.Application();
 
   app.addRegions({
-    contentRegion: '#content-region'
+    contentRegion: '#content-region',
+    navRegion: '#nav-region'
+  });
+
+  var AppRouter = Marionette.AppRouter.extend({
+    onRoute: function () {
+      var navView = require('./app/nav-view');
+      app.navRegion.show(new navView());
+    },
+    routes: {
+      '': 'homeRoute',
+      'login': 'loginRoute',
+      'signup': 'signupRoute',
+    },
+    homeRoute: function () {
+      var appView = require('./app/app-view');
+      app.contentRegion.show(new appView());
+    },
+    loginRoute: function () {
+      var loginView = require('./app/login-view');
+      app.contentRegion.show(new loginView());
+    },
+    signupRoute: function () {
+      var signupView = require('./app/signup-view');
+      app.contentRegion.show(new signupView());
+    }
   });
 
   app.addInitializer(function () {
-    $('#content-region').html('<h1>Hello World!</h1>');
+    var router = new AppRouter();
+    Backbone.history.start();
   });
 
   app.start();

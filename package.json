@@ -1,0 +1,9 @@
+{
+  "name": "qa-app",
+  "dependencies": {
+    "backbone.marionette": "*",
+    "jquery": "*",
+    "browserify": "*",
+    "handlebars": "*"
+  }
+}
