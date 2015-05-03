@@ -8,6 +8,12 @@
 
   var app = new Marionette.Application();
 
+  app.module('session', function () {
+    this.isLoggedIn = function () {
+      return true;
+    }
+  });
+
   app.addRegions({
     contentRegion: '#content-region',
     navRegion: '#nav-region'
@@ -24,8 +30,13 @@
       'signup': 'signupRoute',
     },
     homeRoute: function () {
-      var landingView = require('./app/landing-view');
-      app.contentRegion.show(new landingView());
+      if (!app.session.isLoggedIn()) {
+        var landingView = require('./app/landing-view');
+        app.contentRegion.show(new landingView());
+      } else {
+        var appView = require('./app/app-view');
+        app.contentRegion.show(new appView());
+      }
     },
     loginRoute: function () {
       var loginView = require('./app/login-view');
