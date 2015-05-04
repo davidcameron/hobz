@@ -6,7 +6,7 @@
 
   var QuestionView = Marionette.ItemView.extend({
     tagName: 'div',
-    template: require('./question-add.handlebars'),
+    template: require('./question-form-template.handlebars'),
     events: {
       'submit #question-form': 'questionSubmit',
     },
@@ -26,7 +26,17 @@
       return true;
     },
     submit: function () {
-      console.log('did submit');
+      var QuestionModel = require('./question-model');
+      var questionText = $('#question-text-input').val();
+
+      this.model = new QuestionModel({
+        question_text: questionText
+      });
+
+      this.triggerMethod('add:question', this.model);
+      delete this.events['keyup input'];
+      this.delegateEvents();
+      $('#question-text-input').val('');
     },
     showErrors: function () {
       if(!$('#question-text-input').val()) {
