@@ -10,7 +10,8 @@
     events: {
       'submit #question-form': 'questionSubmit',
     },
-    questionSubmit: function () {
+    questionSubmit: function (e) {
+      e.preventDefault();
       this.events['keyup input'] = 'showErrors';
       this.delegateEvents();
       this.showErrors();
@@ -25,7 +26,7 @@
 
       return true;
     },
-    submit: function () {
+    submit: function (e) {
       var QuestionModel = require('./question-model');
       var questionText = $('#question-text-input').val();
 

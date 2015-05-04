@@ -8,10 +8,11 @@
     tagName: 'div',
     template: require('./signup-template.handlebars'),
     events: {
-      'submit #login-form': 'signupSubmit',
+      'submit #signup-form': 'signupSubmit',
       'change #show-password': 'toggleShowPassword'
     },
-    signupSubmit: function () {
+    signupSubmit: function (e) {
+      e.preventDefault();
       this.events['keyup input'] = 'showErrors';
       this.delegateEvents();
       this.showErrors();

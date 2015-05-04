@@ -10,7 +10,8 @@
     events: {
       'submit #login-form': 'loginSubmit',
     },
-    loginSubmit: function () {
+    loginSubmit: function (e) {
+      e.preventDefault();
       this.events['keyup input'] = 'showErrors';
       this.delegateEvents();
       this.showErrors();
