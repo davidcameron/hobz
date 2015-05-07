@@ -10,7 +10,7 @@
 
   app.module('session', function () {
     this.isLoggedIn = function () {
-      return true;
+      return false;
     }
   });
 
@@ -26,6 +26,7 @@
     },
     routes: {
       '': 'homeRoute',
+      'setup-org': 'setupOrgRoute',
       'login': 'loginRoute',
       'signup': 'signupRoute',
     },
@@ -37,6 +38,10 @@
         var appView = require('./app/app-view');
         app.contentRegion.show(new appView());
       }
+    },
+    setupOrgRoute: function () {
+      var setupOrgView = require('./app/setup-org-view');
+      app.contentRegion.show(new setupOrgView());
     },
     loginRoute: function () {
       var loginView = require('./app/login-view');
