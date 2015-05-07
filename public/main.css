@@ -1,7 +1,34 @@
-.form-group .error-text {
-  visibility: hidden;
+body {
+  font-family: "Open Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.form-group.has-error .error-text {
-  visibility: visible;
+.btn-primary {
+  background-color: #96CD06;
+  border-color: #96CD06;
+  text-transform: uppercase;
+}
+
+.well {
+  background-color: #F6F9F1;
+  border-color: #78A600;
+  border-radius: 0px;
+  box-shadow: none;
+  border-width: 0 0 0 1px;
+}
+
+.btn-primary:hover {
+  background-color: #B4E92B;
+  border-color: #B4E92B;
+}
+
+.btn-primary:focus {
+  outline: none;
+  background-color: #78A600;
+  border-color: #78A600;
+}
+
+.btn-primary:active {
+  outline: none;
+  background-color: #5D8000;
+  border-color: #5D8000;
 }
